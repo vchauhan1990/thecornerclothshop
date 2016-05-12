@@ -12,7 +12,7 @@
   <c:url value="/resources/angularjs/" var="ang"/>
   <c:url value="/resources/images/" var="img"/>
   <c:url value="/resources/jquery/" var="jq"/>
-  <c:url value="http://localhost:8080/thecornerclothshop/" var="path"/>
+  <c:url value="http://localhost:8085/thecornerclothshop/" var="path"/>
   
   	<link rel="stylesheet" href="${boot}bootstrap.min.css">
   	<link rel="stylesheet" href="${boot}custom.css">

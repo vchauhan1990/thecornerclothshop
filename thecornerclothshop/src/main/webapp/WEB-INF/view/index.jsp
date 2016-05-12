@@ -69,8 +69,9 @@ event.preventDefault();
     <span class="sr-only">Next</span>
   </a>
 </div>
-
 </section>
+
+
 <div style="height: 50px"></div>
 <section id="products">
 <div class="container-fluid bg-3 text-center"> 
@@ -78,20 +79,20 @@ event.preventDefault();
   <div class="row">
     <div class="col-sm-4">
       <h3>Men's</h3>
-      <img src="${img }clothes2.jpg" width="100%" alt="Men's">
+     <a href="showProduct/Men"> <img src="${img }clothes2.jpg" width="100%" alt="Men's"></a>
     </div>
     <div class="col-sm-4">
       <h3>Women's</h3>
-      <img src="${img }clothes4.jpg" width="100%" alt="Women's">
+      <a href="showProduct/Women"><img src="${img }clothes4.jpg" width="100%" alt="Women's"></a>
     </div>
     <div class="col-sm-4"> 
       <h3>Accessories</h3>
-      <img src="${img }watches2.jpg" width="100%" alt="Accessories">
+    <a href="showProduct/accessories">  <img src="${img }watches2.jpg" width="100%" alt="Accessories"></a>
     </div>
   </div>
 </div>
-
 </section>
+
 
 <div style="height: 50px"></div>
 <section id="contactus">

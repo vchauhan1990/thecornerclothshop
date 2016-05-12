@@ -5,7 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="Product")
@@ -15,6 +19,7 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int pid;
 	@NotNull
+	@Size(min=5,max=20,message="Please enter a product name having letters between 5 to 12")
 	private String pname;
 	@NotNull
 	private String brand;
@@ -24,13 +29,14 @@ public class Product {
 	@NotNull
 	private String size;
 	private String gtype;
-	@NotNull
-	private String img;
 	
-	public String getImg() {
+	@Transient
+	private MultipartFile img;
+	
+	public MultipartFile getImg() {
 		return img;
 	}
-	public void setImg(String img) {
+	public void setImg(MultipartFile img) {
 		this.img = img;
 	}
 	public int getPid() {

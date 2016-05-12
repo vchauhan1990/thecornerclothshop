@@ -1,4 +1,3 @@
-r45**
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ page import="thecornerclothshop.model.*" %>
 <%@ page import="java.util.*" %>
@@ -12,34 +11,34 @@ r45**
     <div class="form-group" style="padding-top: 30px;">
       <div class="input-group">
         <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-        <input type="text" class="form-control" placeholder="Search music" ng-model="searchMusic">
+        <input type="text" class="form-control" placeholder="Search product" ng-model="searchproduct">
       </div>      
     </div>
   </form>
   
   <div class="container">
 
-<div ng-repeat="x in music | orderBy:sortType:sortReverse | filter:searchMusic" class="col-xs-4 text-center">
+	<div ng-repeat="x in product | orderBy:sortType:sortReverse | filter:searchproduct" class="col-xs-4 text-center">
    	      <div class="panel panel-default" style="border-radius: 0px;">
     <div class="panel-body text-center">
       <div style="float: left;">
       
-      <form action="${path}products/displayProduct/" method="post" class="text-center">
+      <form action="${path}showproduct" method="post" class="text-center">
       	<input type="hidden" value={{x.pid}} name="pid"/>
         <input type="hidden" value={{x.pname}} name="pname"/>
-        <input type="hidden" value={{x.brand}} name="pbrand"/>
-        <input type="hidden" value={{x.discount}} name="pdesc"/>
+        <input type="hidden" value={{x.brand}} name="brand"/>
         <input type="hidden" value={{x.price}} name="price"/>
-        <input type="hidden" value={{x.gtype}} name="category"/>
-        <input type="hidden" value={{x.img}} name="img"/>
+        <input type="hidden" value={{x.discount}} name="discount"/>
+        <input type="hidden" value={{x.gtype}} name="gtype"/>
+        <input type="hidden" value={{x.size}} name="size"/>
         <button type="submit" class="btn btn-link">
-        <img src="${img}{{x.img}}" height=200 width=150/>
+       	<img src="${img}{{x.pid}}.jpg" style="height: 100%; width: 100%;" alt="{{x.pid}}"/>
         </button>
       </form>
      </div>
      </div>
      <div class="panel-heading text-center" style="margin: 0px;background-color: #00A2E8; color:white; text-align: center; border-radius: 0px;">
-      {{ x.pname }}
+    {{ x.pname }}
      <table>
       <tr >
         <td>{{ x.brand }}</td>
@@ -51,7 +50,7 @@ r45**
         <td>{{ x.price }}</td>
          </tr>
      <tr>
-        <td>{{ x.gtype0 }}</td>
+        <td>{{ x.gtype }}</td>
          </tr>
       </table>
       	
@@ -125,7 +124,7 @@ r45**
     
     <tbody>
     
-      <tr ng-repeat="roll in music | orderBy:sortType:sortReverse | filter:searchMusic">
+      <tr ng-repeat="roll in product | orderBy:sortType:sortReverse | filter:searchproduct">
          
         <td>{{ roll.pid }}</td>
         <td>{{ roll.pname }}</td>
@@ -147,7 +146,7 @@ r45**
         myApp.controller('jsonCtrl', function($scope,$http) {
 
         	 
-        	        $scope.music = <%=request.getAttribute("list")%>;
+        	        $scope.product = <%=request.getAttribute("list")%>;
         	        
         	      
         });

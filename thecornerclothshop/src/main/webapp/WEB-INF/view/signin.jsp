@@ -9,21 +9,21 @@
 
 <div class="container panel panel-default" style="width: 500px; border-radius: 0px;">
 
-  <div class="panel-heading" style="margin: 0px;background-color: #00A2E8; color:white; font-weight: bold; text-align: center; font-size: 30px; border-radius: 0px;">ADMIN LOGIN PAGE</div>
+  <div class="panel-heading" style="margin: 0px;background-color: #00A2E8; color:white; font-weight: bold; text-align: center; font-size: 30px; border-radius: 0px;">USER LOGIN PAGE</div>
   <div class="panel-body">
 
 <div class="text-center" style="padding-top: 50px;">
-<form class="form-horizontal" role="form" action="loginForm" method="post">
+<form class="form-horizontal" role="form" action="j_spring_sercurity_check" method="post">
   <div class="form-group">
-    <label class="control-label col-sm-2" for="username">Email:</label>
+    <label class="control-label col-sm-2" for="username">Username:</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+      <input type="text" class="form-control" id="username" name="j_username" placeholder="Enter username">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Password:</label>
     <div class="col-sm-10"> 
-      <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter password">
+      <input type="password" class="form-control" id="pwd" name="j_password" placeholder="Enter password">
     </div>
   </div>
   <div class="form-group text-center"> 

@@ -30,96 +30,105 @@
         });
         </script>
 <div style="height: 50px"></div>
-<div class="container text-center" style="width: 500px">
+<div class="container" style="width: AUTO; text-align: center">
 
-<form:form action="addnewproduct" commandName="product" modelAttribute="product" method="post" class="form-horizontal" role="form">
+<form:form action="uploadImage" commandName="product" modelAttribute="product" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
 <table>
     <c:if test="${!empty product.pid}">
     <tr style="padding: 10px;">
         <td>
             <form:label class="control-label" path="pid">
-                <spring:message text="ID"/>
+                <spring:message text="Product ID"/>
             </form:label>
         </td>
         <td>
             <form:input path="pid" readonly="true" size="8"  disabled="true" ng-model="pid" class="form-control"/>
-            <form:hidden path="pid" />
+           	<form:hidden path="pid" />
         </td> 
+         <td><form:errors path="pid" cssStyle="color: #c0392b;"/></td>
     </tr>
     </c:if>
     <tr>
         <td>
             <form:label class="control-label" path="pname">
-                <spring:message text="PName"/>
+                <spring:message text="Product Name"/>
             </form:label>
         </td>
         <td>
             <form:input path="pname" ng-model="pname" class="form-control"/>
         </td> 
+        <td><form:errors path="pname" cssStyle="color: #c0392b;"/></td>
     </tr>
     <tr>
         <td>
             <form:label class="control-label" path="brand">
-                <spring:message text="brand"/>
+                <spring:message text="Brand"/>
             </form:label>
         </td>
         <td>
             <form:input path="brand" ng-model="brand"  class="form-control"/>
         </td>
+        <td><form:errors path="brand" cssStyle="color: #c0392b;"/></td>
     </tr>
         <tr>
         <td>
             <form:label class="control-label" path="gtype">
-                <spring:message text="gtype" />
+                <spring:message text="Product Type" />
             </form:label>
         </td>
         <td>
            <form:select path="gtype" ng-model="gtype" class="form-control">
            		<form:option value="Men">Men's</form:option>
            		<form:option value="Women">Women's</form:option>
-           		<form:option value="kids">Kids'</form:option>
+           		<form:option value="accessories">Kids'</form:option>
            </form:select>
         </td>
+        <td><form:errors path="gtype" cssStyle="color: #c0392b;"/></td>
     </tr>
         <tr>
         <td>
             <form:label class="control-label" path="price" >
-                <spring:message text="price" />
+                <spring:message text="Price" />
             </form:label>
         </td>
         <td>
             <form:input path="price" ng-model="price" class="form-control"/>
         </td>
+        <td><form:errors path="price" cssStyle="color: #c0392b;"/></td>
     </tr>
             <tr>
         <td>
             <form:label class="control-label" path="discount">
-                <spring:message text="discount"/>
+                <spring:message text="Discount"/>
             </form:label>
         </td>
         <td>
             <form:input path="discount"  ng-model="discount" class="form-control"/>
         </td>
+        <td><form:errors path="discount" cssStyle="color: #c0392b;"/></td>
     </tr>
         <tr>
         <td>
             <form:label class="control-label" path="size">
-                <spring:message text="size"/>
+                <spring:message text="Size"/>
             </form:label>
         </td>
         <td>
             <form:input path="size"  ng-model="size" class="form-control"/>
         </td>
+        <td><form:errors path="size" cssStyle="color: #c0392b;"/></td>
     </tr>
         <tr>
         <td>
             <form:label class="control-label" path="img">
-                <spring:message text="img"/>
+                <spring:message text="Image Upload"/>
             </form:label>
         </td>
         <td>
-            <form:input path="img"  ng-model="img" class="form-control"/>
+            <form:input type="file" path="img"  ng-model="img" class="form-control"/>
         </td>
+        <td><form:errors path="img" cssStyle="color: #c0392b;"/></td>
+        <td><a href="uploadImage"><button>Upload</button></a></td>
     </tr>
     
     <tr>

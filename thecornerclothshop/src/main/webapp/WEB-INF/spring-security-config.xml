@@ -16,7 +16,6 @@
     <beans:property name="password" value=""/>        
 </beans:bean>
 	
-
 	<http auto-config="true">
 		<intercept-url pattern="/adminhome**" access="hasRole('ROLE_ADMIN')" />	
 		<form-login login-page="/adminpage"

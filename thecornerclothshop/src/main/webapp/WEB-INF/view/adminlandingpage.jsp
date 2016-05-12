@@ -10,9 +10,13 @@
   <div class="panel-body">
 
 <div class="text-center" style="padding-top: 50px;">
-<form class="form-horizontal" role="form" action="loginForm" method="post">
+
+<form class="form-horizontal" role="form" action="perform_login" method="post" name="f">
+<c:if test="${not empty error}">
+<div style="color:#c0392b; font-weight: bold"><c:out value="Error! Invalid username and password"/></div>
+</c:if>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="username">Email:</label>
+    <label class="control-label col-sm-2" for="username">User name:</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="username" name="username" placeholder="Enter admin username">
     </div>
@@ -29,8 +33,9 @@
       Submit</button>
   </div>
 </form>
+
 	</div>
 </div>
-	</div>
+</div>
 
 <jsp:include page="footer.jsp"/>

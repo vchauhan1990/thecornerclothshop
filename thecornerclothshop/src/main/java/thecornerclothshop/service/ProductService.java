@@ -36,4 +36,9 @@ public class ProductService {
 		return productDAOImpl.updateProduct(product);
 	}
 	
+	public int getMaxId()
+	{
+		return productDAOImpl.getMaxId();
+	}
+	
 }
