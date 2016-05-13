@@ -33,7 +33,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-					<a href="${flowExecutionUrl}&amp;_eventId=addtocart"><button class="btn" style="margin: 0px;width:150px; background-color: #00A2E8; color:white; text-align: center; font-size: 15px; border-radius: 0px;">Add to Cart<span class="glyphicon glyphicon-shopping-cart"></span></button></a>
+					<a href="cartFlow"><button class="btn" style="margin: 0px;width:150px; background-color: #00A2E8; color:white; text-align: center; font-size: 15px; border-radius: 0px;">Add to Cart<span class="glyphicon glyphicon-shopping-cart"></span></button></a>
 					</td>					
 				</tr>
 			</table>

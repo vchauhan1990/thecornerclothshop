@@ -12,7 +12,7 @@
   <c:url value="/resources/angularjs/" var="ang"/>
   <c:url value="/resources/images/" var="img"/>
   <c:url value="/resources/jquery/" var="jq"/>
-  <c:url value="http://localhost:8085/thecornerclothshop/" var="path"/>
+  <c:url value="http://localhost:8086/thecornerclothshop/" var="path"/>
   
   	<link rel="stylesheet" href="${boot}bootstrap.min.css">
   	<link rel="stylesheet" href="${boot}custom.css">
@@ -20,7 +20,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="${js }bootstrap.min.js"></script>
   <script src="${ang }angular.min.js"></script>
-
+  <script>
+  $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
 </head>
 
 <body>
@@ -39,7 +54,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
       <li><a href="${path}#top">HOME</a></li>
-        <li><a href="${path}#about">ABOUT</a></li>
+        <li><a href="${path}aboutus">ABOUT</a></li>
         <li><a href="${path}#products">PRODUCTS</a></li>
         <li><a href="${path}#contactus">CONTACT US</a></li>
         <li><a href="${path}usersignin">SIGN IN</a></li>

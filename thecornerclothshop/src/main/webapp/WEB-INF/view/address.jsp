@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
-<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
-<input type="submit" name="_eventId_submit" value="next page"/>
-</form>
+	Address
 </body>
 </html>

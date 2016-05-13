@@ -22,15 +22,14 @@
 	       	        	$scope.price=music.price;
         	        	$scope.discount=music.discount;
         	        	$scope.size=music.size;
-        	        	$scope.img=music.img;
-
         	        	}
         	        
         	      
         });
         </script>
+
 <div style="height: 50px"></div>
-<div class="container" style="width: AUTO; text-align: center">
+<div class="container text-center" style="width: 700px; text-align: center">
 
 <form:form action="uploadImage" commandName="product" modelAttribute="product" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
 <table>
@@ -80,7 +79,7 @@
            <form:select path="gtype" ng-model="gtype" class="form-control">
            		<form:option value="Men">Men's</form:option>
            		<form:option value="Women">Women's</form:option>
-           		<form:option value="accessories">Kids'</form:option>
+           		<form:option value="accessories">Accessories</form:option>
            </form:select>
         </td>
         <td><form:errors path="gtype" cssStyle="color: #c0392b;"/></td>
@@ -128,7 +127,6 @@
             <form:input type="file" path="img"  ng-model="img" class="form-control"/>
         </td>
         <td><form:errors path="img" cssStyle="color: #c0392b;"/></td>
-        <td><a href="uploadImage"><button>Upload</button></a></td>
     </tr>
     
     <tr>

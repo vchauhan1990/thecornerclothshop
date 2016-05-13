@@ -15,17 +15,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import thecornerclothshop.model.ContactForm;
 import thecornerclothshop.model.Product;
+import thecornerclothshop.service.ContactFormService;
 import thecornerclothshop.service.ProductService;
 
 @Controller
 public class HomeController {
 	
 	ProductService service;
+	ContactFormService cfService;
 	@Autowired
-	public HomeController(ProductService service) 
+	public HomeController(ProductService service, ContactFormService cfService) 
 	{
 		this.service=service;
+		this.cfService=cfService;
 	}
 	
 	@RequestMapping("/")
@@ -56,6 +60,12 @@ public class HomeController {
 	public String getFail(HttpServletResponse response)
 	{
 		return "fail";
+	}
+	
+	@RequestMapping("/aboutus")
+	public String getAboutUs(HttpServletResponse response)
+	{
+		return "aboutus";
 	}
 	
 	@RequestMapping("/showproduct")
@@ -91,6 +101,15 @@ public class HomeController {
 			System.out.println("cjson: "+json);
 			model.addAttribute("list",json);
 			return "products";
+	}
+	
+	@RequestMapping("/savecontactus")
+	public String saveContactInfo(@ModelAttribute("contactForm") ContactForm contactForm, Model model)
+	{
+	
+		model.addAttribute("contactForm", new ContactForm());
+		cfService.storeInfo(contactForm);
+			return "index?msg=ok";
 	}
 
 }

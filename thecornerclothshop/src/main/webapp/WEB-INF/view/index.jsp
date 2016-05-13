@@ -1,5 +1,6 @@
 <%@page isELIgnored="false" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@include file="header.jsp" %>
 <jsp:include page="header.jsp"/>
   <!-- smooth scrolling script -->
@@ -105,25 +106,46 @@ event.preventDefault();
       <p><span class="glyphicon glyphicon-phone"></span> +91 9013832352</p>
       <p><span class="glyphicon glyphicon-envelope"></span> query@thecornerclothshop.com</p> 
     </div>
+    <form:form action="savecontactus" method="post">
     <div class="col-sm-7">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+          <form:input class="form-control" path="name" placeholder="Name" type="text" required="required"/>
         </div>
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          <form:input class="form-control" path="email" placeholder="Email" type="email" required="required"/>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <form:textarea class="form-control" path="comment" placeholder="Comment" rows="5"/><br>
       <div class="row">
         <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
+          <button class="btn"  type="submit" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;">Send</button>
         </div>
+        <c:if test="${msg}!=null">
+        <c:out value="Thank you for contacting us! Our team will contact with within 24 hours."/>
+        </c:if> 
       </div> 
     </div>
+    </form:form>
   </div>
 </div>
 </section>
 <div style="height: 50px"></div>
+  <script>
+  $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
 
 <jsp:include page="footer.jsp"/>
