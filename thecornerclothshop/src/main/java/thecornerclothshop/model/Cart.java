@@ -1,8 +1,14 @@
 package thecornerclothshop.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,8 +16,10 @@ import javax.persistence.Table;
 public class Cart implements Serializable{
 
 	private static final long serialVersionUID = -5607361532359029845L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int cartId;
-	private int price,quantity,total;
+	public List<Items> items;
 	
 	public int getCartId() {
 		return cartId;
@@ -19,37 +27,14 @@ public class Cart implements Serializable{
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	public int getTotal() {
-		return total;
-	}
-	public void setTotal(int total) {
-		this.total = total;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	private String name,description;
 	
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+	public List<Items> getItems() {
+		return items;
+	}
+	public void setItems(List<Items> items) {
+		this.items = items;
+	}
+
 
 }

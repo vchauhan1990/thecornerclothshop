@@ -96,7 +96,9 @@ public class AdminController {
 	public String insertProduct(@Valid @ModelAttribute("product") Product p, HttpServletRequest request, BindingResult result,ModelMap model) throws IOException
 	{
 		boolean res=false;
-		res=service.addProduct(p);
+		if(p.getPid() == 0){
+	
+			res=service.addProduct(p);
 		
 		ServletContext context=request.getServletContext();
 		String rootPath=context.getRealPath("./resources/images/"+service.getMaxId()+".jpg");		
@@ -124,6 +126,11 @@ public class AdminController {
 		else
 		{
 			res=false;
+		}
+		}
+		else
+		{
+			res=service.updateProduct(p);
 		}
 		if(res)
 		{

@@ -34,8 +34,9 @@
 </form>
 	</div>
 </div>
-	<h4>New User? Let's Shop Together!</h4><button class="btn" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;">
-      Register</button>
+	<h4>New User? Let's Shop Together!</h4>
+	<a href="register"><button class="btn" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;">
+      Register</button></a>
 	</div>
 
 

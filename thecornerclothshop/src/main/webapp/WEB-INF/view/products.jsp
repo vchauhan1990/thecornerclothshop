@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="header.jsp" %>
 <jsp:include page="header.jsp"/>
-
+<div ng-if="processing" us-spinner></div>
 <div class="container" ng-app="myApp" ng-controller="jsonCtrl">
    
   <form>

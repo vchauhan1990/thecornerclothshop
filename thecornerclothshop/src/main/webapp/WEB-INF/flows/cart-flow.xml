@@ -3,23 +3,28 @@
 <flow xmlns="http://www.springframework.org/schema/webflow"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
-
+	
 	<on-start>
-	  <evaluate expression="cartService.initFlow()" result="flowScope.cart"/>
+		<evaluate expression="cartService.initFlow()"/>
+		<set name="flowScope.pid" value="requestParameter.pid" />
+		<set name="flowScope.pname" value="requestParameters.pname" />
+		<set name="flowScope.price" value="requestParameters.price" />
 	</on-start>
- 
+
 	
 	<view-state id="start" view="/WEB-INF/view/shoppingcart.jsp" model="flowScope.cart">
-	   <transition on="submit" to="address"/>
+	  <transition on="submit" to="address"/>
 	</view-state>
- 
-		<action-state id="validate">
-		<evaluate expression="cartService.validateDetails(cart,messageContext)"></evaluate>
-		<transition on="success" to="address" />
-		<transition on="failure" to="start" />
-		</action-state>
+
+	<view-state id="address" view="/WEB-INF/view/address.jsp" >
+		<transition on="submit1" to="order" />
+	</view-state>
 	
-		<view-state id="address" view="/WEB-INF/view/address.jsp">
-		<transition on="submit" to="validate"/>
+	<view-state id="order" view="/WEB-INF/view/ordersummary.jsp">
+		<transition on="thank" to="thankyou"/>
+	</view-state>
+	
+	<view-state id="thankyou" view="/WEB-INF/view/thankyou.jsp">
+
 	</view-state>
 </flow>

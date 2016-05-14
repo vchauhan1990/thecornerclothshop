@@ -21,21 +21,23 @@
   <script src="${js }bootstrap.min.js"></script>
   <script src="${ang }angular.min.js"></script>
   <script>
-  $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
+  <!-- smooth scrolling script -->
+<script>
+$(function () {
+
+$('a[href^="#"]').click(function(event) {
+var id = $(this).attr("href");
+var offset = 20;
+var target = $(id).offset().top - offset;
+
+$('html, body').animate({scrollTop:target}, 500);
+event.preventDefault();
 });
+
+});
+
 </script>
+<!-- end smooth scrolling script -->
 </head>
 
 <body>
@@ -58,7 +60,7 @@
         <li><a href="${path}#products">PRODUCTS</a></li>
         <li><a href="${path}#contactus">CONTACT US</a></li>
         <li><a href="${path}usersignin">SIGN IN</a></li>
-        <li><a href="${path}cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <li><a href="cartFlow"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       </ul>
     </div>
   </div>

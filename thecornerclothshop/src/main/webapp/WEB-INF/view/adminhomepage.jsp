@@ -13,6 +13,7 @@
 
         	 
         	        $scope.music = <%=request.getAttribute("list")%>;
+        	        
         	        $scope.myFunction = function() {
         	        	$scope.music = <%=request.getAttribute("list")%>;
         	        	$scope.pid=music.pid;
@@ -126,13 +127,12 @@
         <td>
             <form:input type="file" path="img"  ng-model="img" class="form-control"/>
         </td>
-        <td><form:errors path="img" cssStyle="color: #c0392b;"/></td>
     </tr>
     
     <tr>
         <td colspan="2">
             <c:if test="${!empty product.pname}">
-                <button type="submit" class="btn" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;"
+                <button ng-click="myFunction()" type="submit" class="btn" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;"
                     ><spring:message text="Edit Product"/></button>
             </c:if>
             <c:if test="${empty product.pname}">
@@ -212,7 +212,7 @@
         <td>
           <a href="#">
          	Delete
-          </a>
+          </a>0
         </td>
       </tr>
     </thead>
@@ -252,7 +252,7 @@
         <input type="hidden" value={{roll.price}} name="price"/>
         <input type="hidden" value={{roll.gtype}} name="gtype"/>
         <input type="hidden" value={{roll.img}} name="img"/>
-       <button type="submit" class="btn" style="margin: 0px;width:100px; background-color: #c0392b; color:white; text-align: center; font-size: 015x; border-radius: 0px;"
+       <button type="submit" class="btn"S style="margin: 0px;width:100px; background-color: #c0392b; color:white; text-align: center; font-size: 015x; border-radius: 0px;"
                     >
         Delete &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span>
         </button>

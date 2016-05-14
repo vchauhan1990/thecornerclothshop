@@ -4,7 +4,7 @@
   <a href="#top" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
-  <p> (c)2016 Copyright. www.thecornerclothshop.com <a href="http://localhost:8080/thecornerclothshop/" title="Vist The Corner ClothShop">www.thecornerclothshop.com</a></p> 
+  <p> (c)2016 Copyright. www.thecornerclothshop.com <a href="http://localhost:8086/thecornerclothshop/" title="Vist The Corner ClothShop">www.thecornerclothshop.com</a></p> 
 </footer>
 <div class="modal fade" id="signin" role="dialog">
     <div class="modal-dialog">

@@ -53,7 +53,7 @@ public class HomeController {
 	@RequestMapping("/register")
 	public String getRegisterPage(HttpServletResponse response)
 	{
-		return "index";
+		return "register";
 	}
 
 	@RequestMapping("/logfail")

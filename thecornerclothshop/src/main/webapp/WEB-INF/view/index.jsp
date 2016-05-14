@@ -3,23 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@include file="header.jsp" %>
 <jsp:include page="header.jsp"/>
-  <!-- smooth scrolling script -->
-<script>
-$(function () {
 
-$('a[href^="#"]').click(function(event) {
-var id = $(this).attr("href");
-var offset = 20;
-var target = $(id).offset().top - offset;
-
-$('html, body').animate({scrollTop:target}, 500);
-event.preventDefault();
-});
-
-});
-
-</script>
-<!-- end smooth scrolling script -->
 <section id="top">
 <div id="imgslider" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -106,17 +90,17 @@ event.preventDefault();
       <p><span class="glyphicon glyphicon-phone"></span> +91 9013832352</p>
       <p><span class="glyphicon glyphicon-envelope"></span> query@thecornerclothshop.com</p> 
     </div>
-    <form:form action="savecontactus" method="post">
+    <form action="savecontactus" method="post">
     <div class="col-sm-7">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <form:input class="form-control" path="name" placeholder="Name" type="text" required="required"/>
+          <input class="form-control" name="name" placeholder="Name" type="text" required="required"/>
         </div>
         <div class="col-sm-6 form-group">
-          <form:input class="form-control" path="email" placeholder="Email" type="email" required="required"/>
+          <input class="form-control" name="email" placeholder="Email" type="email" required="required"/>
         </div>
       </div>
-      <form:textarea class="form-control" path="comment" placeholder="Comment" rows="5"/><br>
+      <textarea class="form-control" name="comment" placeholder="Comment" rows="5"></textarea><br>
       <div class="row">
         <div class="col-sm-12 form-group">
           <button class="btn"  type="submit" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;">Send</button>
@@ -126,26 +110,11 @@ event.preventDefault();
         </c:if> 
       </div> 
     </div>
-    </form:form>
+    </form>
   </div>
 </div>
 </section>
 <div style="height: 50px"></div>
-  <script>
-  $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-</script>
+
 
 <jsp:include page="footer.jsp"/>

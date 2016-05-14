@@ -1,29 +1,33 @@
 package thecornerclothshop.service;
 
+import java.util.List;
+
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
+import thecornerclothshop.dao.CartDAOImpl;
 import thecornerclothshop.model.Cart;
+import thecornerclothshop.model.Items;
 
 @Component
 public class CartService {
 	
+	CartDAOImpl daoImpl;
 		 
-		public Cart initFlow(){
-			return new Cart();
+		public void initFlow(){	
+	
 		}
-	 
-		public String validateDetails(Cart cart,MessageContext messageContext){
-			String status = "success";
-			System.out.println("inside validate");
-			if(cart.getCartId()==0){
-				messageContext.addMessage(new MessageBuilder().error().source(
-						"userId").defaultText("Cart ID Empty").build());
-				
-				status = "failure";
-			}
-			return status;
+		
+		public List<Items> getCartData()
+		{
+			daoImpl=new CartDAOImpl();
+			
+			List<Items> items=null;
+			
+			
+			
+			return items;
 		}
 
 }
